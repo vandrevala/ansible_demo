@@ -6,3 +6,7 @@
     - name: Display a cool message
       debug:
         msg: "Ansible is working! Hello world! Woooooo!"
+    - name: Create a file
+      file:
+        path: "/home/vagrant/my_file.txt"
+        state: touch
