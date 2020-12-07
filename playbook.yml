@@ -2,6 +2,7 @@
 - name: Our first playbook
   gather_facts: false
   hosts: vagrant
+  become: yes
   tasks:
     - name: Display a cool message
       debug:
@@ -10,3 +11,8 @@
       file:
         path: "/home/vagrant/my_file.txt"
         state: touch
+    - name: Install the build-essential package
+      apt:
+        update_cache: yes
+        pkg: build-essential
+        state: present
