@@ -1,0 +1,15 @@
+postgresql_databases:
+  - name: test_db
+postgresql_users:
+  - name: vagrant
+    password: password
+    encrypted: yes
+    role_attr_flags: 'CREATEDB,NOSUPERUSER,LOGIN'
+postgresql_global_config_options:
+  - option: unix_socket_directories
+    value: '{{ postgresql_unix_socket_directories | join(",") }}'
+  - option: listen_addresses
+    value: '*'
+postgresql_hba_entries:
+  - { type: local, database: all, user: all, auth_method: peer }
+  - { type: host, database: all, user: all, address: all, auth_method: md5 }

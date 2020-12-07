@@ -16,3 +16,17 @@
         update_cache: yes
         pkg: build-essential
         state: present
+
+- name: Our first playbook
+  hosts: vagrant
+  become: yes
+  vars_files:
+    - vars.yml
+  roles:
+    - geerlingguy.postgresql
+  tasks:
+    - name: Install postgres CLI tools
+      apt:
+        update_cache: yes
+        pkg: postgresql-client-common
+        state: present
