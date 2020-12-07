@@ -1,0 +1,8 @@
+---
+- name: Our first playbook
+  gather_facts: false
+  hosts: vagrant
+  tasks:
+    - name: Display a cool message
+      debug:
+        msg: "Ansible is working! Hello world! Woooooo!"
